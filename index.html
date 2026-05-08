@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avenida Psi | Lic. Daniela Altobelli</title>
+    <style>
+      :root {
+        --bg: #fbf5ec;
+        --bg-2: #f5eadb;
+        --text: #201b18;
+        --muted: #5f5550;
+        --wine: #8b0710;
+        --wine-2: #64060c;
+        --gold: #bd8a45;
+        --gold-soft: rgba(189, 138, 69, 0.18);
+        --card: rgba(255, 252, 247, 0.78);
+        --border: rgba(153, 110, 58, 0.22);
+        --shadow: 0 24px 80px rgba(93, 54, 22, 0.14);
+        --header-h: 88px;
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body { height: 100%; }
+
+      html {
+        scroll-behavior: smooth;
+        overflow-y: scroll;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, "Segoe UI", Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -3;
+        background:
+          radial-gradient(circle at 12% 18%, rgba(189, 138, 69, 0.18), transparent 30%),
+          radial-gradient(circle at 88% 22%, rgba(139, 7, 16, 0.08), transparent 32%),
+          radial-gradient(circle at 52% 85%, rgba(189, 138, 69, 0.16), transparent 35%),
+          linear-gradient(180deg, #fffaf2 0%, #fbf5ec 46%, #f3e5d5 100%);
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        pointer-events: none;
+        background-image:
+          linear-gradient(120deg, transparent 0 46%, rgba(189, 138, 69, 0.08) 46% 47%, transparent 47% 100%),
+          radial-gradient(circle at 50% 50%, transparent 45%, rgba(92, 47, 16, 0.05) 100%);
+        opacity: 0.8;
+      }
+
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: var(--header-h);
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 clamp(1rem, 4vw, 3rem);
+        background: rgba(255, 250, 242, 0.76);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(153, 110, 58, 0.14);
+      }
+
+      .header-inner {
+        width: min(1180px, 100%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        min-width: 180px;
+      }
+
+      .brand img {
+        width: 88px;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .brand-text {
+        display: none;
+        line-height: 1.05;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        color: var(--text);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: clamp(0.8rem, 2vw, 1.8rem);
+        font-size: 0.92rem;
+      }
+
+      .nav a {
+        color: var(--text);
+        text-decoration: none;
+        opacity: 0.82;
+        transition: color 0.2s ease, opacity 0.2s ease;
+      }
+
+      .nav a:hover { color: var(--wine); opacity: 1; }
+
+      .btn {
+        border: 0;
+        cursor: pointer;
+        font-family: inherit;
+        font-weight: 800;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+
+      .btn:hover { transform: translateY(-2px); }
+
+      .btn-pill {
+        padding: 0.9rem 1.25rem;
+        border-radius: 999px;
+        color: white;
+        background: linear-gradient(135deg, var(--wine) 0%, var(--wine-2) 100%);
+        box-shadow: 0 14px 34px rgba(139, 7, 16, 0.18);
+      }
+
+      section {
+        position: relative;
+        height: 100vh;
+        height: 100svh;
+        min-height: 650px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: calc(var(--header-h) + 1rem) clamp(1rem, 4vw, 3rem) clamp(2rem, 6vh, 4rem);
+        overflow: hidden;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+      }
+
+      .container {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+        max-height: calc(100svh - var(--header-h) - 3rem);
+      }
+
+      .hero-grid,
+      .split-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+        gap: clamp(2rem, 5vw, 5rem);
+        align-items: center;
+      }
+
+      .portrait-shell {
+        position: relative;
+        width: min(420px, 100%);
+        margin: 0 auto;
+      }
+
+      .portrait-shell::before {
+        content: "";
+        position: absolute;
+        inset: -18px 24px 24px -18px;
+        border-radius: 52% 48% 8rem 8rem;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.28);
+        z-index: -1;
+      }
+
+      .portrait {
+        width: 100%;
+        aspect-ratio: 4 / 5.2;
+        display: block;
+        object-fit: cover;
+        object-position: center top;
+        border-radius: 52% 48% 3rem 3rem;
+        box-shadow: var(--shadow);
+      }
+
+      .ornament {
+        position: absolute;
+        right: -28px;
+        bottom: 22px;
+        width: 112px;
+        height: 112px;
+        border-radius: 999px;
+        border: 1px solid rgba(189, 138, 69, 0.38);
+        background: rgba(255, 252, 247, 0.72);
+        display: grid;
+        place-items: center;
+        color: var(--gold);
+        font-size: 3rem;
+        box-shadow: 0 16px 50px rgba(93, 54, 22, 0.12);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        margin-bottom: 1rem;
+        color: var(--gold);
+        font-weight: 800;
+        font-size: 0.78rem;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::after {
+        content: "";
+        width: 48px;
+        height: 1px;
+        background: var(--gold);
+        opacity: 0.7;
+      }
+
+      h1, h2 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: 400;
+        line-height: 1.05;
+        letter-spacing: -0.04em;
+      }
+
+      h1 {
+        font-size: clamp(3.2rem, 7vw, 6.6rem);
+        max-width: 760px;
+      }
+
+      .script {
+        display: block;
+        margin-top: 0.1em;
+        font-family: "Segoe Script", "Brush Script MT", cursive;
+        color: var(--wine);
+        font-size: 0.82em;
+        letter-spacing: -0.06em;
+      }
+
+      h2 { font-size: clamp(2.5rem, 5.2vw, 5.2rem); }
+
+      .lead {
+        margin-top: 1.5rem;
+        max-width: 620px;
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: clamp(1rem, 1.25vw, 1.16rem);
+      }
+
+      .btn-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .soft-card {
+        padding: clamp(1.35rem, 3vw, 2.2rem);
+        border-radius: 2rem;
+        background: var(--card);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0;
+        margin-top: 2rem;
+      }
+
+      .feature {
+        padding: 1.1rem 1rem;
+        text-align: center;
+        border-left: 1px solid rgba(153, 110, 58, 0.18);
+      }
+
+      .feature:first-child { border-left: 0; }
+
+      .icon {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 0.9rem;
+        display: grid;
+        place-items: center;
+        color: var(--gold);
+        font-size: 2rem;
+      }
+
+      .feature strong,
+      .pill strong,
+      .contact-item strong {
+        display: block;
+        margin-bottom: 0.45rem;
+        color: var(--text);
+      }
+
+      .feature p,
+      .pill p,
+      .contact-item p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.55;
+        font-size: 0.92rem;
+      }
+
+      .pill-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .pill {
+        min-height: 118px;
+        padding: 1.15rem;
+        border-radius: 1.2rem;
+        background: rgba(255, 252, 247, 0.68);
+        border: 1px solid var(--border);
+      }
+
+      .contact-panel {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: clamp(1.5rem, 4vw, 4rem);
+        align-items: stretch;
+      }
+
+      .contact-quote {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .contact-box {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .contact-item {
+        padding: 1.2rem;
+        border-radius: 1.2rem;
+        border: 1px solid var(--border);
+        background: rgba(255, 252, 247, 0.68);
+      }
+
+      .section-footer {
+        position: absolute;
+        left: 1.5rem;
+        right: 1.5rem;
+        bottom: 1.3rem;
+        text-align: center;
+        color: rgba(95, 85, 80, 0.8);
+        font-size: 0.84rem;
+      }
+
+      .scroll-hint {
+        margin-top: 2rem;
+        color: var(--gold);
+        font-size: 0.95rem;
+        animation: floatY 2.4s ease-in-out infinite;
+      }
+
+      .fade { opacity: 0; transition: opacity 0.9s ease; }
+      .fade.visible { opacity: 1; }
+      .fade > .container { transform: translateY(45px); transition: transform 0.9s ease; }
+      .fade.visible > .container { transform: translateY(0); }
+
+      .contact-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 20;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        background: rgba(40, 24, 18, 0.38);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+      }
+
+      .contact-modal.active { display: flex; }
+
+      .contact-modal__panel {
+        width: min(520px, 100%);
+        padding: clamp(1.25rem, 3vw, 2rem);
+        border-radius: 1.5rem;
+        background: #fffaf2;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+      }
+
+      .contact-modal__header {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .contact-modal__header h3 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 2rem;
+        font-weight: 400;
+      }
+
+      .contact-modal__close {
+        width: 2.25rem;
+        height: 2.25rem;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: rgba(189, 138, 69, 0.08);
+        color: var(--wine);
+        cursor: pointer;
+        font-size: 1.2rem;
+      }
+
+      .contact-form { display: grid; gap: 0.9rem; }
+
+      .contact-form label {
+        display: grid;
+        gap: 0.35rem;
+        color: var(--text);
+        font-size: 0.9rem;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 0.9rem;
+        padding: 0.85rem 0.95rem;
+        background: rgba(255, 255, 255, 0.72);
+        color: var(--text);
+        font: inherit;
+        outline: none;
+      }
+
+      .contact-form textarea { min-height: 120px; resize: vertical; }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        border-color: rgba(139, 7, 16, 0.55);
+        box-shadow: 0 0 0 3px rgba(139, 7, 16, 0.1);
+      }
+
+      @keyframes floatY {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(8px); }
+      }
+
+      @media (max-width: 960px) {
+        :root { --header-h: 76px; }
+        .nav { display: none; }
+        .brand img { width: 74px; }
+        .brand-text { display: block; }
+        .hero-grid,
+        .split-grid,
+        .contact-panel { grid-template-columns: 1fr; }
+        .portrait-shell { width: min(340px, 100%); }
+        .feature-grid { grid-template-columns: 1fr; }
+        .feature { border-left: 0; border-top: 1px solid rgba(153, 110, 58, 0.18); }
+        .feature:first-child { border-top: 0; }
+        .pill-grid { grid-template-columns: 1fr; }
+        section {
+          height: auto;
+          min-height: 100svh;
+          overflow: visible;
+          align-items: flex-start;
+          padding-bottom: 4rem;
+        }
+        .container { max-height: none; }
+        .section-footer { position: relative; left: auto; right: auto; bottom: auto; margin-top: 2rem; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#inicio" aria-label="Avenida Psi">
+          <img src="assets/img/avenida-psi-logo-low.png" alt="Avenida Psi" />
+          <span class="brand-text">Avenida<br />Psi</span>
+        </a>
+        <nav class="nav" aria-label="Navegación principal">
+          <a href="#inicio">Inicio</a>
+          <a href="#sobre-mi">Sobre mí</a>
+          <a href="#enfoque">Mi enfoque</a>
+          <a href="#especialidades">Terapias</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+        <button class="btn btn-pill" type="button" id="btnHeaderContacto">Solicitar turno</button>
+      </div>
+    </header>
+
+    <div class="contact-modal" id="contactModal" aria-hidden="true">
+      <div class="contact-modal__panel" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+        <div class="contact-modal__header">
+          <div>
+            <h3 id="contactTitle">Solicitar turno</h3>
+            <p class="lead" style="margin-top: .35rem; font-size: .95rem; line-height: 1.5">Dejá tus datos y Daniela se contactará a la brevedad.</p>
+          </div>
+          <button class="contact-modal__close" type="button" id="btnCerrarContacto" aria-label="Cerrar formulario">×</button>
+        </div>
+
+        <form class="contact-form" action="/contacto" method="POST">
+          <label>Nombre <input type="text" name="nombre" autocomplete="name" required /></label>
+          <label>Email <input type="email" name="email" autocomplete="email" required /></label>
+          <label>Teléfono <input type="tel" name="telefono" autocomplete="tel" /></label>
+          <label>Mensaje <textarea name="mensaje" required></textarea></label>
+          <button class="btn btn-pill" type="submit">Enviar consulta</button>
+        </form>
+      </div>
+    </div>
+
+    <section id="inicio" class="fade" data-scene="inicio">
+      <div class="container hero-grid">
+        <div class="portrait-shell">
+          <img class="portrait" src="assets/img/daniela-altobelli.jpeg" alt="Lic. Daniela Altobelli" />
+          <div class="ornament" aria-hidden="true">♡</div>
+        </div>
+        <div>
+          <div class="eyebrow">Avenida Psi</div>
+          <h1>Hola, soy <span class="script">Daniela Altobelli</span></h1>
+          <p class="lead">Licenciada en Psicología. Acompaño a personas que conviven con ansiedad, preocupaciones constantes y exigencia emocional.</p>
+          <div class="btn-row">
+            <button class="btn btn-pill" type="button" id="btnHeroContacto">Solicitar turno</button>
+          </div>
+          <div class="scroll-hint">Deslizá para explorar</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre-mi" class="fade" data-scene="sobre-mi">
+      <div class="container split-grid">
+        <div>
+          <div class="eyebrow">Sobre mí</div>
+          <h2>Un espacio humano, cercano y profesional.</h2>
+        </div>
+        <div class="soft-card">
+          <p class="lead" style="margin-top:0">Hace más de diez años acompaño procesos terapéuticos desde una mirada clara, empática y orientada a herramientas reales.</p>
+          <p class="lead">Mi enfoque busca generar un espacio donde sea posible entender lo que sucede, encontrar recursos concretos y transitar los procesos con más calma.</p>
+          <p class="lead">A través de Avenida Psi intento acercar la salud mental de una manera más humana, cercana y accesible.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="enfoque" class="fade" data-scene="enfoque">
+      <div class="container soft-card">
+        <div style="text-align:center">
+          <div class="eyebrow" style="justify-content:center">Mi enfoque</div>
+          <h2>Acompañamiento cercano y profesional</h2>
+        </div>
+        <div class="feature-grid">
+          <div class="feature"><div class="icon">♧</div><strong>Escucha activa</strong><p>Te escucho sin juicios, con empatía y respeto.</p></div>
+          <div class="feature"><div class="icon">☁</div><strong>Herramientas reales</strong><p>Estrategias prácticas para aplicar en tu día a día.</p></div>
+          <div class="feature"><div class="icon">✦</div><strong>Enfoque integral</strong><p>Cuerpo, mente y emociones conectadas.</p></div>
+          <div class="feature"><div class="icon">♡</div><strong>Vínculo terapéutico</strong><p>Un espacio seguro y de confianza.</p></div>
+          <div class="feature"><div class="icon">✧</div><strong>Crecimiento personal</strong><p>Más calma, autoconocimiento y bienestar.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="especialidades" class="fade" data-scene="especialidades">
+      <div class="container split-grid">
+        <div>
+          <div class="eyebrow">Me especializo en</div>
+          <h2>Procesos que necesitan calma, claridad y acompañamiento.</h2>
+          <p class="lead">Una propuesta terapéutica pensada para abordar ansiedad, exigencia, pensamientos repetitivos y dificultades emocionales cotidianas.</p>
+        </div>
+        <div class="pill-grid">
+          <div class="pill"><strong>Ansiedad y ataques de pánico</strong><p>Acompañamiento para comprender y regular el malestar.</p></div>
+          <div class="pill"><strong>Pensamientos intrusivos</strong><p>Herramientas para tomar distancia y recuperar claridad.</p></div>
+          <div class="pill"><strong>Regulación emocional</strong><p>Recursos para transitar emociones intensas.</p></div>
+          <div class="pill"><strong>Autoestima y confianza</strong><p>Construcción de una mirada más amable sobre vos.</p></div>
+          <div class="pill"><strong>Estrés y exigencia constante</strong><p>Trabajo sobre hábitos, límites y sobrecarga.</p></div>
+          <div class="pill"><strong>Psicología online</strong><p>Atención cercana y accesible desde donde estés.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="fade" data-scene="contacto">
+      <div class="container contact-panel">
+        <div class="contact-quote">
+          <div class="eyebrow">Contacto</div>
+          <h2>No tenés que atravesarlo solo/a.</h2>
+          <p class="lead">Estoy acá para acompañarte. Podemos coordinar una primera conversación para conocer qué necesitás y pensar juntas/os el próximo paso.</p>
+          <div class="btn-row"><button class="btn btn-pill" type="button" id="btnContactoFinal">Solicitar turno</button></div>
+        </div>
+        <div class="soft-card contact-box">
+          <div class="contact-item"><strong>Atención</strong><p>Psicología online · Adolescentes y adultos</p></div>
+          <div class="contact-item"><strong>Email</strong><p>info@avenidapsi.com</p></div>
+          <div class="contact-item"><strong>WhatsApp</strong><p>+54 11 1234 5678</p></div>
+          <div class="contact-item"><strong>Instagram</strong><p>@avenidapsi</p></div>
+        </div>
+      </div>
+      <div class="section-footer"><strong>Avenida Psi</strong> · Lic. Daniela Altobelli · Psicología online · © 2026</div>
+    </section>
+
+    <script>
+      const fadeElements = document.querySelectorAll(".fade");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+            else entry.target.classList.remove("visible");
+          });
+        },
+        { threshold: 0.45 }
+      );
+      fadeElements.forEach((el) => observer.observe(el));
+
+      const snapSections = Array.from(document.querySelectorAll("section"));
+      let currentSnapIndex = 0;
+      let isSnapping = false;
+
+      function getCurrentSectionIndex() {
+        const scrollY = window.scrollY;
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+        snapSections.forEach((section, index) => {
+          const distance = Math.abs(section.offsetTop - scrollY);
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestIndex = index;
+          }
+        });
+        return closestIndex;
+      }
+
+      function snapToSection(index) {
+        if (index < 0 || index >= snapSections.length) return;
+        isSnapping = true;
+        currentSnapIndex = index;
+        snapSections[index].scrollIntoView({ behavior: "smooth", block: "start" });
+        setTimeout(() => {
+          window.scrollTo({ top: snapSections[index].offsetTop, behavior: "auto" });
+          currentSnapIndex = index;
+          isSnapping = false;
+        }, 900);
+      }
+
+      window.addEventListener(
+        "wheel",
+        (event) => {
+          event.preventDefault();
+          if (isSnapping) return;
+          if (Math.abs(event.deltaY) < 8) return;
+          if (event.deltaY > 0) snapToSection(currentSnapIndex + 1);
+          if (event.deltaY < 0) snapToSection(currentSnapIndex - 1);
+        },
+        { passive: false }
+      );
+
+      window.addEventListener("scroll", () => {
+        if (!isSnapping) currentSnapIndex = getCurrentSectionIndex();
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => {
+          const id = link.getAttribute("href");
+          const target = document.querySelector(id);
+          if (!target) return;
+          event.preventDefault();
+          currentSnapIndex = snapSections.indexOf(target);
+          snapToSection(currentSnapIndex);
+        });
+      });
+
+      const contactModal = document.getElementById("contactModal");
+      const openButtons = ["btnHeaderContacto", "btnHeroContacto", "btnContactoFinal"]
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+      const btnCerrarContacto = document.getElementById("btnCerrarContacto");
+
+      function abrirContacto() {
+        contactModal.classList.add("active");
+        contactModal.setAttribute("aria-hidden", "false");
+      }
+      function cerrarContacto() {
+        contactModal.classList.remove("active");
+        contactModal.setAttribute("aria-hidden", "true");
+      }
+
+      openButtons.forEach((btn) => btn.addEventListener("click", abrirContacto));
+      btnCerrarContacto.addEventListener("click", cerrarContacto);
+      contactModal.addEventListener("click", (event) => { if (event.target === contactModal) cerrarContacto(); });
+      window.addEventListener("keydown", (event) => { if (event.key === "Escape") cerrarContacto(); });
+    </script>
+  </body>
+</html>

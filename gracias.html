@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gracias | Avenida Psi</title>
+
+    <style>
+      :root {
+        --bg: #fbf5ec;
+        --text: #201b18;
+        --muted: #5f5550;
+        --wine: #8b0710;
+        --wine-2: #64060c;
+        --gold: #bd8a45;
+        --border: rgba(153, 110, 58, 0.22);
+        --card: rgba(255, 252, 247, 0.82);
+        --shadow: 0 24px 80px rgba(93, 54, 22, 0.14);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 2rem;
+        font-family: Inter, "Segoe UI", Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        background:
+          radial-gradient(circle at 12% 18%, rgba(189, 138, 69, 0.18), transparent 30%),
+          radial-gradient(circle at 88% 22%, rgba(139, 7, 16, 0.08), transparent 32%),
+          radial-gradient(circle at 52% 85%, rgba(189, 138, 69, 0.16), transparent 35%),
+          linear-gradient(180deg, #fffaf2 0%, #fbf5ec 46%, #f3e5d5 100%);
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background-image:
+          linear-gradient(120deg, transparent 0 46%, rgba(189, 138, 69, 0.08) 46% 47%, transparent 47% 100%),
+          radial-gradient(circle at 50% 50%, transparent 45%, rgba(92, 47, 16, 0.05) 100%);
+        opacity: 0.8;
+      }
+
+      .thanks-card {
+        width: min(620px, 100%);
+        padding: clamp(2rem, 5vw, 3.5rem);
+        text-align: center;
+        border-radius: 2rem;
+        background: var(--card);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+      }
+
+      .brand-mark {
+        width: 112px;
+        height: auto;
+        margin: 0 auto 1.5rem;
+        display: block;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        margin-bottom: 1rem;
+        color: var(--gold);
+        font-weight: 800;
+        font-size: 0.78rem;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before,
+      .eyebrow::after {
+        content: "";
+        width: 34px;
+        height: 1px;
+        background: var(--gold);
+        opacity: 0.7;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.5rem, 7vw, 4.6rem);
+        font-weight: 400;
+        line-height: 1.05;
+        letter-spacing: -0.04em;
+      }
+
+      .script {
+        display: block;
+        margin-top: 0.1em;
+        font-family: "Segoe Script", "Brush Script MT", cursive;
+        color: var(--wine);
+        font-size: 0.76em;
+        letter-spacing: -0.06em;
+      }
+
+      p {
+        max-width: 460px;
+        margin: 1.4rem auto 0;
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 1.05rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+        padding: 0.95rem 1.35rem;
+        border-radius: 999px;
+        color: white;
+        background: linear-gradient(135deg, var(--wine) 0%, var(--wine-2) 100%);
+        box-shadow: 0 14px 34px rgba(139, 7, 16, 0.18);
+        font-weight: 800;
+        text-decoration: none;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 42px rgba(139, 7, 16, 0.24);
+      }
+
+      .footer-note {
+        margin-top: 1.5rem;
+        font-size: 0.86rem;
+        color: rgba(95, 85, 80, 0.72);
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="thanks-card">
+      <img class="brand-mark" src="assets/img/avenida-psi-logo-low.png" alt="Avenida Psi" />
+
+      <div class="eyebrow">Consulta enviada</div>
+
+      <h1>
+        Gracias por contactarte
+        <span class="script">Avenida Psi</span>
+      </h1>
+
+      <p>Recibimos tu consulta correctamente. Daniela se contactará a la brevedad para acompañarte y coordinar el próximo paso.</p>
+
+      <a class="btn" href="/">Volver al inicio</a>
+
+      <div class="footer-note">Lic. Daniela Altobelli · Psicología online</div>
+    </main>
+  </body>
+</html>

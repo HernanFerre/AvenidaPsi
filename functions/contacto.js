@@ -30,7 +30,7 @@ export async function onRequest(context) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Avenida Psi <onboarding@resend.dev>",
+        from: "Avenida Psi <contacto@avenidapsi.com.ar>",
         to: ["lic.altobellidaniela@gmail.com"],
         reply_to: email,
         subject: "Nueva consulta desde Avenida Psi",

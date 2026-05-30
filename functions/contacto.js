@@ -1,8 +1,8 @@
-export async function onRequestGet(context) {
-  return Response.redirect(new URL("/", context.request.url), 302);
-}
+export async function onRequest(context) {
+  if (context.request.method !== "POST") {
+    return Response.redirect(new URL("/", context.request.url), 302);
+  }
 
-export async function onRequestPost(context) {
   try {
     const formData = await context.request.formData();
 

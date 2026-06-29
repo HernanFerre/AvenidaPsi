@@ -20,9 +20,14 @@
         --header-h: 88px;
       }
 
-      * { box-sizing: border-box; }
+      * {
+        box-sizing: border-box;
+      }
 
-      html, body { height: 100%; }
+      html,
+      body {
+        height: 100%;
+      }
 
       html {
         scroll-behavior: smooth;
@@ -119,20 +124,30 @@
         color: var(--text);
         text-decoration: none;
         opacity: 0.82;
-        transition: color 0.2s ease, opacity 0.2s ease;
+        transition:
+          color 0.2s ease,
+          opacity 0.2s ease;
       }
 
-      .nav a:hover { color: var(--wine); opacity: 1; }
+      .nav a:hover {
+        color: var(--wine);
+        opacity: 1;
+      }
 
       .btn {
         border: 0;
         cursor: pointer;
         font-family: inherit;
         font-weight: 800;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          background 0.2s ease;
       }
 
-      .btn:hover { transform: translateY(-2px); }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
 
       .btn-pill {
         padding: 0.9rem 1.25rem;
@@ -182,7 +197,7 @@
         inset: -18px 24px 24px -18px;
         border-radius: 52% 48% 8rem 8rem;
         border: 1px solid var(--border);
-        background: rgba(255,255,255,0.28);
+        background: rgba(255, 255, 255, 0.28);
         z-index: -1;
       }
 
@@ -232,7 +247,8 @@
         opacity: 0.7;
       }
 
-      h1, h2 {
+      h1,
+      h2 {
         margin: 0;
         font-family: Georgia, "Times New Roman", serif;
         font-weight: 400;
@@ -254,7 +270,14 @@
         letter-spacing: -0.06em;
       }
 
-      h2 { font-size: clamp(2.5rem, 5.2vw, 5.2rem); }
+      h2 {
+        font-size: clamp(2.5rem, 5.2vw, 5.2rem);
+      }
+
+      .especialidades-title {
+        font-size: clamp(2.2rem, 4vw, 4.4rem);
+        max-width: 620px;
+      }
 
       .lead {
         margin-top: 1.5rem;
@@ -294,7 +317,9 @@
         border-left: 1px solid rgba(153, 110, 58, 0.18);
       }
 
-      .feature:first-child { border-left: 0; }
+      .feature:first-child {
+        border-left: 0;
+      }
 
       .icon {
         width: 50px;
@@ -380,10 +405,20 @@
         animation: floatY 2.4s ease-in-out infinite;
       }
 
-      .fade { opacity: 0; transition: opacity 0.9s ease; }
-      .fade.visible { opacity: 1; }
-      .fade > .container { transform: translateY(45px); transition: transform 0.9s ease; }
-      .fade.visible > .container { transform: translateY(0); }
+      .fade {
+        opacity: 0;
+        transition: opacity 0.9s ease;
+      }
+      .fade.visible {
+        opacity: 1;
+      }
+      .fade > .container {
+        transform: translateY(45px);
+        transition: transform 0.9s ease;
+      }
+      .fade.visible > .container {
+        transform: translateY(0);
+      }
 
       .contact-modal {
         position: fixed;
@@ -398,7 +433,9 @@
         -webkit-backdrop-filter: blur(14px);
       }
 
-      .contact-modal.active { display: flex; }
+      .contact-modal.active {
+        display: flex;
+      }
 
       .contact-modal__panel {
         width: min(520px, 100%);
@@ -434,7 +471,10 @@
         font-size: 1.2rem;
       }
 
-      .contact-form { display: grid; gap: 0.9rem; }
+      .contact-form {
+        display: grid;
+        gap: 0.9rem;
+      }
 
       .contact-form label {
         display: grid;
@@ -455,7 +495,10 @@
         outline: none;
       }
 
-      .contact-form textarea { min-height: 120px; resize: vertical; }
+      .contact-form textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
 
       .contact-form input:focus,
       .contact-form textarea:focus {
@@ -464,23 +507,49 @@
       }
 
       @keyframes floatY {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(8px); }
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(8px);
+        }
       }
 
       @media (max-width: 960px) {
-        :root { --header-h: 76px; }
-        .nav { display: none; }
-        .brand img { width: 74px; }
-        .brand-text { display: block; }
+        :root {
+          --header-h: 76px;
+        }
+        .nav {
+          display: none;
+        }
+        .brand img {
+          width: 74px;
+        }
+        .brand-text {
+          display: block;
+        }
         .hero-grid,
         .split-grid,
-        .contact-panel { grid-template-columns: 1fr; }
-        .portrait-shell { width: min(340px, 100%); }
-        .feature-grid { grid-template-columns: 1fr; }
-        .feature { border-left: 0; border-top: 1px solid rgba(153, 110, 58, 0.18); }
-        .feature:first-child { border-top: 0; }
-        .pill-grid { grid-template-columns: 1fr; }
+        .contact-panel {
+          grid-template-columns: 1fr;
+        }
+        .portrait-shell {
+          width: min(340px, 100%);
+        }
+        .feature-grid {
+          grid-template-columns: 1fr;
+        }
+        .feature {
+          border-left: 0;
+          border-top: 1px solid rgba(153, 110, 58, 0.18);
+        }
+        .feature:first-child {
+          border-top: 0;
+        }
+        .pill-grid {
+          grid-template-columns: 1fr;
+        }
         section {
           height: auto;
           min-height: 100svh;
@@ -488,8 +557,16 @@
           align-items: flex-start;
           padding-bottom: 4rem;
         }
-        .container { max-height: none; }
-        .section-footer { position: relative; left: auto; right: auto; bottom: auto; margin-top: 2rem; }
+        .container {
+          max-height: none;
+        }
+        .section-footer {
+          position: relative;
+          left: auto;
+          right: auto;
+          bottom: auto;
+          margin-top: 2rem;
+        }
       }
     </style>
   </head>
@@ -498,7 +575,7 @@
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="#inicio" aria-label="Avenida Psi">
-          <img src="assets/img/avenida-psi-logo-low.png" alt="Avenida Psi" />
+          <img src="assets/img/avenida-psi-logo-low.webp" alt="Avenida Psi" />
           <span class="brand-text">Avenida<br />Psi</span>
         </a>
         <nav class="nav" aria-label="Navegación principal">
@@ -517,7 +594,9 @@
         <div class="contact-modal__header">
           <div>
             <h3 id="contactTitle">Solicitar turno</h3>
-            <p class="lead" style="margin-top: .35rem; font-size: .95rem; line-height: 1.5">Dejá tus datos y Daniela se contactará a la brevedad.</p>
+            <p class="lead" style="margin-top: 0.35rem; font-size: 0.95rem; line-height: 1.5">
+              Dejá tus datos y Daniela se contactará a la brevedad.
+            </p>
           </div>
           <button class="contact-modal__close" type="button" id="btnCerrarContacto" aria-label="Cerrar formulario">×</button>
         </div>
@@ -535,13 +614,15 @@
     <section id="inicio" class="fade" data-scene="inicio">
       <div class="container hero-grid">
         <div class="portrait-shell">
-          <img class="portrait" src="assets/img/daniela-altobelli.jpeg" alt="Lic. Daniela Altobelli" />
-          <div class="ornament" aria-hidden="true">♡</div>
+          <img class="portrait" src="assets/img/daniela-altobelli.png" alt="Lic. Daniela Altobelli" />
+          <!-- <div class="ornament" aria-hidden="true">♡</div> -->
         </div>
         <div>
           <div class="eyebrow">Avenida Psi</div>
           <h1>Hola, soy <span class="script">Daniela Altobelli</span></h1>
-          <p class="lead">Licenciada en Psicología. Acompaño a personas que conviven con ansiedad, preocupaciones constantes y exigencia emocional.</p>
+          <p class="lead">
+            Licenciada en Psicología. Acompaño a personas que conviven con ansiedad, preocupaciones constantes y exigencia emocional.
+          </p>
           <div class="btn-row">
             <button class="btn btn-pill" type="button" id="btnHeroContacto">Solicitar turno</button>
           </div>
@@ -557,8 +638,13 @@
           <h2>Un espacio humano, cercano y profesional.</h2>
         </div>
         <div class="soft-card">
-          <p class="lead" style="margin-top:0">Hace más de diez años acompaño procesos terapéuticos desde una mirada clara, empática y orientada a herramientas reales.</p>
-          <p class="lead">Mi enfoque busca generar un espacio donde sea posible entender lo que sucede, encontrar recursos concretos y transitar los procesos con más calma.</p>
+          <p class="lead" style="margin-top: 0">
+            Hace más de diez años acompaño procesos terapéuticos desde una mirada clara, empática y orientada a herramientas reales.
+          </p>
+          <p class="lead">
+            Mi enfoque busca generar un espacio donde sea posible entender lo que sucede, encontrar recursos concretos y transitar los
+            procesos con más calma.
+          </p>
           <p class="lead">A través de Avenida Psi intento acercar la salud mental de una manera más humana, cercana y accesible.</p>
         </div>
       </div>
@@ -566,16 +652,36 @@
 
     <section id="enfoque" class="fade" data-scene="enfoque">
       <div class="container soft-card">
-        <div style="text-align:center">
-          <div class="eyebrow" style="justify-content:center">Mi enfoque</div>
+        <div style="text-align: center">
+          <div class="eyebrow" style="justify-content: center">Mi enfoque</div>
           <h2>Acompañamiento cercano y profesional</h2>
         </div>
         <div class="feature-grid">
-          <div class="feature"><div class="icon">♧</div><strong>Escucha activa</strong><p>Te escucho sin juicios, con empatía y respeto.</p></div>
-          <div class="feature"><div class="icon">☁</div><strong>Herramientas reales</strong><p>Estrategias prácticas para aplicar en tu día a día.</p></div>
-          <div class="feature"><div class="icon">✦</div><strong>Enfoque integral</strong><p>Cuerpo, mente y emociones conectadas.</p></div>
-          <div class="feature"><div class="icon">♡</div><strong>Vínculo terapéutico</strong><p>Un espacio seguro y de confianza.</p></div>
-          <div class="feature"><div class="icon">✧</div><strong>Crecimiento personal</strong><p>Más calma, autoconocimiento y bienestar.</p></div>
+          <div class="feature">
+            <div class="icon">♧</div>
+            <strong>Escucha activa</strong>
+            <p>Te escucho sin juicios, con empatía y respeto.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">☁</div>
+            <strong>Herramientas reales</strong>
+            <p>Estrategias prácticas para aplicar en tu día a día.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">✦</div>
+            <strong>Enfoque integral</strong>
+            <p>Cuerpo, mente y emociones conectadas.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">♡</div>
+            <strong>Vínculo terapéutico</strong>
+            <p>Un espacio seguro y de confianza.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">✧</div>
+            <strong>Crecimiento personal</strong>
+            <p>Más calma, autoconocimiento y bienestar.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -584,16 +690,37 @@
       <div class="container split-grid">
         <div>
           <div class="eyebrow">Me especializo en</div>
-          <h2>Procesos que necesitan calma, claridad y acompañamiento.</h2>
-          <p class="lead">Una propuesta terapéutica pensada para abordar ansiedad, exigencia, pensamientos repetitivos y dificultades emocionales cotidianas.</p>
+          <h2 class="especialidades-title">Procesos que necesitan calma, claridad y acompañamiento.</h2>
+          <p class="lead">
+            Una propuesta terapéutica pensada para abordar ansiedad, exigencia, pensamientos repetitivos y dificultades emocionales
+            cotidianas.
+          </p>
         </div>
         <div class="pill-grid">
-          <div class="pill"><strong>Ansiedad y ataques de pánico</strong><p>Acompañamiento para comprender y regular el malestar.</p></div>
-          <div class="pill"><strong>Pensamientos intrusivos</strong><p>Herramientas para tomar distancia y recuperar claridad.</p></div>
-          <div class="pill"><strong>Regulación emocional</strong><p>Recursos para transitar emociones intensas.</p></div>
-          <div class="pill"><strong>Autoestima y confianza</strong><p>Construcción de una mirada más amable sobre vos.</p></div>
-          <div class="pill"><strong>Estrés y exigencia constante</strong><p>Trabajo sobre hábitos, límites y sobrecarga.</p></div>
-          <div class="pill"><strong>Psicología online</strong><p>Atención cercana y accesible desde donde estés.</p></div>
+          <div class="pill">
+            <strong>Ansiedad y ataques de pánico</strong>
+            <p>Acompañamiento para comprender y regular el malestar.</p>
+          </div>
+          <div class="pill">
+            <strong>Pensamientos intrusivos</strong>
+            <p>Herramientas para tomar distancia y recuperar claridad.</p>
+          </div>
+          <div class="pill">
+            <strong>Regulación emocional</strong>
+            <p>Recursos para transitar emociones intensas.</p>
+          </div>
+          <div class="pill">
+            <strong>Autoestima y confianza</strong>
+            <p>Construcción de una mirada más amable sobre vos.</p>
+          </div>
+          <div class="pill">
+            <strong>Estrés y exigencia constante</strong>
+            <p>Trabajo sobre hábitos, límites y sobrecarga.</p>
+          </div>
+          <div class="pill">
+            <strong>Psicología online</strong>
+            <p>Atención cercana y accesible desde donde estés.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -603,14 +730,29 @@
         <div class="contact-quote">
           <div class="eyebrow">Contacto</div>
           <h2>No tenés que atravesarlo solo/a.</h2>
-          <p class="lead">Estoy acá para acompañarte. Podemos coordinar una primera conversación para conocer qué necesitás y pensar juntas/os el próximo paso.</p>
+          <p class="lead">
+            Estoy acá para acompañarte. Podemos coordinar una primera conversación para conocer qué necesitás y pensar juntas/os el próximo
+            paso.
+          </p>
           <div class="btn-row"><button class="btn btn-pill" type="button" id="btnContactoFinal">Solicitar turno</button></div>
         </div>
         <div class="soft-card contact-box">
-          <div class="contact-item"><strong>Atención</strong><p>Psicología online · Adolescentes y adultos</p></div>
-          <div class="contact-item"><strong>Email</strong><p>info@avenidapsi.com</p></div>
-          <div class="contact-item"><strong>WhatsApp</strong><p>+54 11 1234 5678</p></div>
-          <div class="contact-item"><strong>Instagram</strong><p>@avenidapsi</p></div>
+          <div class="contact-item">
+            <strong>Atención</strong>
+            <p>Psicología online · Adolescentes y adultos</p>
+          </div>
+          <div class="contact-item">
+            <strong>Email</strong>
+            <p>info@avenidapsi.com</p>
+          </div>
+          <div class="contact-item">
+            <strong>WhatsApp</strong>
+            <p>+54 11 1234 5678</p>
+          </div>
+          <div class="contact-item">
+            <strong>Instagram</strong>
+            <p>@avenidapsi</p>
+          </div>
         </div>
       </div>
       <div class="section-footer"><strong>Avenida Psi</strong> · Lic. Daniela Altobelli · Psicología online · © 2026</div>
@@ -625,10 +767,11 @@
             else entry.target.classList.remove("visible");
           });
         },
-        { threshold: 0.45 }
+        { threshold: 0.45 },
       );
       fadeElements.forEach((el) => observer.observe(el));
 
+      const usarSnap = window.matchMedia("(min-width: 961px)").matches;
       const snapSections = Array.from(document.querySelectorAll("section"));
       let currentSnapIndex = 0;
       let isSnapping = false;
@@ -659,17 +802,46 @@
         }, 900);
       }
 
-      window.addEventListener(
-        "wheel",
-        (event) => {
+      if (usarSnap) {
+        window.addEventListener(
+          "wheel",
+          (event) => {
+            event.preventDefault();
+
+            if (isSnapping) return;
+
+            if (Math.abs(event.deltaY) < 8) return;
+
+            if (event.deltaY > 0) snapToSection(currentSnapIndex + 1);
+            if (event.deltaY < 0) snapToSection(currentSnapIndex - 1);
+          },
+          { passive: false },
+        );
+
+        window.addEventListener("scroll", () => {
+          if (!isSnapping) currentSnapIndex = getCurrentSectionIndex();
+        });
+      }
+
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => {
+          const id = link.getAttribute("href");
+          const target = document.querySelector(id);
+          if (!target) return;
+
           event.preventDefault();
-          if (isSnapping) return;
-          if (Math.abs(event.deltaY) < 8) return;
-          if (event.deltaY > 0) snapToSection(currentSnapIndex + 1);
-          if (event.deltaY < 0) snapToSection(currentSnapIndex - 1);
-        },
-        { passive: false }
-      );
+
+          if (usarSnap) {
+            currentSnapIndex = snapSections.indexOf(target);
+            snapToSection(currentSnapIndex);
+          } else {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
 
       window.addEventListener("scroll", () => {
         if (!isSnapping) currentSnapIndex = getCurrentSectionIndex();
@@ -703,8 +875,12 @@
 
       openButtons.forEach((btn) => btn.addEventListener("click", abrirContacto));
       btnCerrarContacto.addEventListener("click", cerrarContacto);
-      contactModal.addEventListener("click", (event) => { if (event.target === contactModal) cerrarContacto(); });
-      window.addEventListener("keydown", (event) => { if (event.key === "Escape") cerrarContacto(); });
+      contactModal.addEventListener("click", (event) => {
+        if (event.target === contactModal) cerrarContacto();
+      });
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") cerrarContacto();
+      });
     </script>
   </body>
 </html>

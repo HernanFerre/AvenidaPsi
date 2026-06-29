@@ -527,7 +527,7 @@
           width: 74px;
         }
         .brand-text {
-          display: block;
+          display: none;
         }
         .hero-grid,
         .split-grid,
@@ -560,12 +560,37 @@
         .container {
           max-height: none;
         }
-        .section-footer {
-          position: relative;
-          left: auto;
-          right: auto;
-          bottom: auto;
+
+        #contacto {
+          display: block;
+          min-height: auto;
+          padding-top: calc(var(--header-h) + 2rem);
+        }
+
+        #contacto .contact-panel {
+          display: block;
+        }
+
+        #contacto .contact-quote {
+          display: block;
+        }
+
+        #contacto .contact-box {
           margin-top: 2rem;
+        }
+
+        #contacto .section-footer {
+          position: static;
+          display: block;
+          margin-top: 2rem;
+          padding-bottom: 1rem;
+          text-align: center;
+        }
+
+        .section-footer {
+          position: static;
+          margin-top: 2rem;
+          text-align: center;
         }
       }
     </style>
